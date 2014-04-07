@@ -1,19 +1,16 @@
-= lioooo_utils
+== lioooo_utils
 
-Description goes here.
+This Gem Now just for log function i will add more future.
 
-== Contributing to lioooo_utils
- 
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
-* Fork the project.
-* Start a feature/bugfix branch.
-* Commit and push until you are happy with your contribution.
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+== How to Use?
 
-== Copyright
+gem install lioooo_utils
 
-Copyright (c) 2014 mrli. See LICENSE.txt for
-further details.
+liooooo_build_log_dir -t /tmp #将日志链接到/tmp目录中去
+
+require 'lioooo_utils'
+
+LiooooLogger.prefix 'my_log_prefix'  #set log file prefix my_log_preifx_log.log
+
+LiooooLogger.info "Lioooo Utils Logger function work ok!"
 
