@@ -17,10 +17,15 @@ Jeweler::Tasks.new do |gem|
   gem.name = "lioooo_utils"
   gem.homepage = "http://github.com/mrli/lioooo_utils"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{use it for common log }
+  gem.description = %Q{this gem for lioooo common utils like log or file controll etc.}
   gem.email = "lb563@foxmail.com"
-  gem.authors = ["mrli"]
+  gem.authors = ["liooo"]
+  gem.files = Dir.glob('lib/**/*.rb')
+  gem.files.exclude 'log'
+  gem.add_dependency 'colored', '= 1.2'
+  gem.add_dependency 'logging', '= 1.8.1'
+  gem.executables = ['liooo_link_log_dir']
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new

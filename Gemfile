@@ -12,3 +12,6 @@ group :development do
   gem "jeweler", "~> 2.0.1"
   gem "simplecov", ">= 0"
 end
+gem 'colored', '1.2'
+gem 'logging', '1.8.1'
+

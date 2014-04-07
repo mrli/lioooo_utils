@@ -8,6 +8,8 @@ rdoc
 # yard generated
 doc
 .yardoc
+.idea
+*.log
 
 # bundler
 .bundle

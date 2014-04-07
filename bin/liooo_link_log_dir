@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+require 'lioooo_utils'
+require 'optparse'
+options = {}
+OptionParser.new do |opts|
+  opts.banner = 'Usage: lioooo [options]'
+  opts.on('-t', '--target [log_dir]', 'default link to /tmp/log') do |log_dir|
+    options[:target] = log_dir
+  end
+  opts.on('-v', '--version') { puts "lioooo_utils v#{LiooooUtils::VERSION}"; exit(0) }
+end.parse!
+
+LiooooUtils.build_log_dir LogRoot, options[:target]
