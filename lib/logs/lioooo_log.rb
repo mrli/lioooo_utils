@@ -3,11 +3,12 @@ require 'colored'
 require 'logging'
 LogRoot = File.expand_path("../../log", __FILE__)
 class LiooooUtilsLogger
-  attr_accessor :logger
+  attr_accessor :logger, :log_dir
 
-  def initialize type
+  def initialize type, log_dir=nil
+    @log_dir = log_dir.nil? ? LogRoot : log_dir
     init_log_dir
-    path = File.expand_path("#{LogRoot}/#{type}_log.log", __FILE__)
+    path = File.expand_path("#{log_dir}/#{type}_log.log", __FILE__)
     @logger = Logging.logger["Lioooo#{type.upcase}Log"]
     @logger.add_appenders(
         Logging.appenders.stdout,
@@ -26,8 +27,8 @@ class LiooooUtilsLogger
 
   # liooo_link_log_dir require log directory
   def init_log_dir
-    cmd = "mkdir -p #{LogRoot}"
-    system cmd unless File.exist? LogRoot
+    cmd = "mkdir -p #{log_dir}"
+    system cmd unless File.exist? log_dir
   end
 
   # puts log with error prefix
@@ -62,17 +63,16 @@ class LiooooUtilsLogger
     @logger.info msg.blue
   end
 
-end
-
-#custom call system shell script
-class ShellExec
-  def self.exec! cmd
-    LiooooLogger.shell cmd
+  #---------------------for call shell command----------------
+  def shell_exec! cmd
+    shell cmd
     system "source ~/.bash_profile && #{cmd}"
   end
+
 end
 
-LiooooLogger = LiooooUtilsLogger.new :lioooo
+# need init when use it
+#LiooooLogger = LiooooUtilsLogger.new :lioooo
 
 
 
