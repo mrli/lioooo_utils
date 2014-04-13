@@ -1,4 +1,6 @@
-== lioooo_utils
+lioooo_utils
+
+This Gem i use it in my work. it have collect code list or common script. 
 
 #### How to use it
 
