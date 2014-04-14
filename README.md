@@ -26,3 +26,11 @@ LiooooLogger = LiooooUtilsLogger.new :lioooo,'/tmp' #new instance with log paren
 LiooooLogger.shell_exec! 'echo ok' # this will can shell `echo` command
 
 ```
+
+#### you can check is runtime machine in lan
+```
+require 'lioooo_utils'
+
+LiooooLogger.is_dev? # this will check runtime machine in lan return ***0*** or ***nil***
+
+```
