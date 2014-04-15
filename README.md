@@ -34,3 +34,12 @@ require 'lioooo_utils'
 LiooooLogger.is_dev? # this will check runtime machine in lan return ***0*** or ***nil***
 
 ```
+
+
+#### you can gen sig for some code like this
+```
+require 'lioooo_utils'
+
+LiooooUtils::SigCheck.makeSig('get',"/api/user",{:name=>'lioooo'},"appkey"); #=> 9yX6wvZOdxorfjmQtlG8n7cX+zo
+
+```
