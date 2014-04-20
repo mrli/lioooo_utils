@@ -23,8 +23,6 @@ Jeweler::Tasks.new do |gem|
   gem.authors = ["liooo"]
   gem.files = Dir.glob('lib/**/*.rb')
   gem.files.exclude 'log'
-  gem.add_dependency 'colored', '= 1.2'
-  gem.add_dependency 'logging', '= 1.8.1'
   gem.executables = ['liooo_link_log_dir']
   # dependencies defined in Gemfile
 end
@@ -37,9 +35,9 @@ Rake::TestTask.new(:test) do |test|
   test.verbose = true
 end
 
-desc "Code coverage detail"
+desc 'Code coverage detail'
 task :simplecov do
-  ENV['COVERAGE'] = "true"
+  ENV['COVERAGE'] = 'true'
   Rake::Task['test'].execute
 end
 
@@ -47,7 +45,7 @@ task :default => :test
 
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
+  version = File.exist?('VERSION') ? File.read('VERSION') : ''
 
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title = "lioooo_utils #{version}"

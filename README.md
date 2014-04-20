@@ -43,3 +43,23 @@ require 'lioooo_utils'
 LiooooUtils::SigCheck.makeSig('get',"/api/user",{:name=>'lioooo'},"appkey"); #=> 9yX6wvZOdxorfjmQtlG8n7cX+zo
 
 ```
+
+#### you can get current os user name
+```
+require 'lioooo_utils'
+
+LiooooUtils.username #=> mile001
+
+```
+
+#### you can get current os type like: linux,windows,macosx,unix
+```
+require 'lioooo_utils'
+
+LiooooUtils.os #=> macosx
+LiooooUtils.is_mac? #=> true
+LiooooUtils.is_linux? #=> false
+LiooooUtils.is_win? #=> false
+
+
+```

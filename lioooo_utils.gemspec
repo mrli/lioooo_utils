@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.23"
-  s.summary = "use it for common log"
+  s.summary = "just for me to collect some usefull script"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
