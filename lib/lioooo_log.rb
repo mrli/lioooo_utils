@@ -44,7 +44,7 @@ class LiooooUtilsLogger
 
   def warn msg
     msg = "#{msg} "
-    @logger.warn msg.blue
+    @logger.warn msg.magenta
   end
 
   def debug msg
