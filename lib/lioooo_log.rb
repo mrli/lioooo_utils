@@ -1,6 +1,7 @@
 #encoding: utf-8
 require 'colored'
 require 'logging'
+require 'benchmark'
 LogRoot = File.expand_path("../../log", __FILE__)
 class LiooooUtilsLogger
   attr_accessor :logger, :log_dir
@@ -69,10 +70,24 @@ class LiooooUtilsLogger
     system "source ~/.bash_profile && #{cmd}"
   end
 
+  # print block exec time
+  def real_time &block
+    if block_given?
+      elapsed = Benchmark.realtime do
+        yield
+      end
+      warn "执行完毕: #{(elapsed).round(2)} 毫秒!"
+    end
+  end
+
+
 end
 
 # need init when use it
-#LiooooLogger = LiooooUtilsLogger.new :lioooo
+#LiooooLogger = LiooooUtilsLogger.new :lioooo, "/tmp"
+#LiooooLogger.ba do |ele|
+#  sleep 3
+#end
 
 
 
