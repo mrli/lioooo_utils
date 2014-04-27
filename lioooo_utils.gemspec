@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "lioooo_utils"
-  s.version = "0.3.5"
+  s.version = "0.3.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["liooo"]
-  s.date = "2014-04-24"
+  s.date = "2014-04-27"
   s.description = "this gem for lioooo common utils like log or file controll etc."
   s.email = "lb563@foxmail.com"
   s.executables = ["liooo_link_log_dir"]
@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
     "lib/lioooo_log.rb",
     "lib/lioooo_utils.rb",
     "lib/sigcheck.rb",
+    "lib/time_utils.rb",
     "lib/utils.rb",
     "lib/version.rb"
   ]
