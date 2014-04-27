@@ -2,11 +2,12 @@
 require 'colored'
 require 'logging'
 require 'benchmark'
-LogRoot = File.expand_path("../../log", __FILE__)
+require File.expand_path('../time_utils', __FILE__)
+LogRoot = File.expand_path('../../log', __FILE__)
 class LiooooUtilsLogger
   attr_accessor :logger, :log_dir
 
-  def initialize type, log_dir=nil
+  def initialize(type, log_dir=nil)
     @log_dir = log_dir.nil? ? LogRoot : log_dir
     init_log_dir
     path = File.expand_path("#{log_dir}/#{type}_log.log", __FILE__)
@@ -18,7 +19,7 @@ class LiooooUtilsLogger
     logger.level = :debug
   end
 
-  def prefix fix
+  def prefix(fix)
     path = File.expand_path("#{LogRoot}/#{fix}_log.log", __FILE__)
     @logger.add_appenders(
         Logging.appenders.stdout,
@@ -33,28 +34,33 @@ class LiooooUtilsLogger
   end
 
   # puts log with error prefix
-  def error msg
-    msg = "#{msg}"
+  def error(msg)
+    msg = "[#{now}] #{msg}"
     @logger.error msg.red
   end
 
+  def now
+    LiooooUtils::TimeUtils.now_y_m_d_s_m_s
+  end
+
   # puts log with info prefix
-  def info msg
+  def info(msg)
+    msg = "[#{now}] #{msg}"
     @logger.info msg
   end
 
-  def warn msg
-    msg = "#{msg} "
+  def warn(msg)
+    msg = "[#{now}] #{msg}"
     @logger.warn msg.magenta
   end
 
   def debug msg
-    msg = "#{msg}"
+    msg = "[#{now}] #{msg}"
     @logger.debug msg.yellow
   end
 
-  def shell msg
-    msg = "\n #{msg}"
+  def shell(msg)
+    msg = "\n [#{now}] #{msg}"
     @logger.debug msg.white_on_black
   end
 
@@ -65,13 +71,13 @@ class LiooooUtilsLogger
   end
 
   #---------------------for call shell command----------------
-  def shell_exec! cmd
+  def shell_exec!(cmd)
     shell cmd
     system "source ~/.bash_profile && #{cmd}"
   end
 
   # print block exec time
-  def real_time &block
+  def real_time(&block)
     if block_given?
       elapsed = Benchmark.realtime do
         yield
@@ -85,7 +91,7 @@ end
 
 # need init when use it
 #LiooooLogger = LiooooUtilsLogger.new :lioooo, "/tmp"
-#LiooooLogger.ba do |ele|
+#LiooooLogger.real_time do |ele|
 #  sleep 3
 #end
 
