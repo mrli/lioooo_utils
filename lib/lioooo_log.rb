@@ -82,7 +82,7 @@ class LiooooUtilsLogger
       elapsed = Benchmark.realtime do
         yield
       end
-      warn "执行完毕: #{(elapsed).round(2)} 毫秒!"
+      warn "执行完毕: #{(elapsed).round(2)} 秒!"
     end
   end
 
