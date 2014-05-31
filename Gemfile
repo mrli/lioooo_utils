@@ -15,5 +15,5 @@ end
 
 gem 'colored', '1.2'
 gem 'logging', '1.8.1'
-gem 'activesupport','3.2.16'
+gem 'activesupport','4.1.1'
 
